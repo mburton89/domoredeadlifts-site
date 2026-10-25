@@ -1,159 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Deadlift Story | Burtonian Deadlifts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="The personal story behind Do More Deadlifts: learning to build strength, move with confidence, and protect your back.">
+  <title>My Story — Do More Deadlifts</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --paper: #ffffff;
+      --ink: #242820;
+      --muted: #686b5d;
+      --green: #52664a;
+      --line: #d8d6cb;
+      --wash: #f4f3ee;
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: "Courier New", Courier, monospace;
     }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: #f5f3eb; /* eggshell white */
-      color: #2c2c2c;
-      font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
-      line-height: 1.75;
-      font-size: 1.125rem;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
-
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 4rem 1.75rem 6rem;
+    a { color: inherit; }
+    .shell { width: min(1080px, calc(100% - 44px)); margin-inline: auto; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 25px 0; border-bottom: 1px solid var(--line);
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .08em;
+      text-transform: uppercase;
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #d4cfc3;
+    .brand { font-weight: 700; text-decoration: none; letter-spacing: .12em; }
+    .topnote { color: var(--muted); }
+    .hero {
+      min-height: 620px; display: grid; grid-template-columns: 1.1fr .9fr;
+      align-items: center; gap: clamp(30px, 6vw, 84px); padding: 82px 0 90px;
     }
-
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-      color: #1a1a1a;
+    .eyebrow {
+      font-family: var(--mono); color: var(--green); text-transform: uppercase;
+      letter-spacing: .16em; font-size: .76rem; font-weight: 700;
     }
-
-    .subtitle {
-      font-size: 1.15rem;
-      font-style: italic;
-      color: #5a5a5a;
+    h1 { font-size: clamp(3.4rem, 7.7vw, 6.8rem); line-height: .94; letter-spacing: -.065em; font-weight: 500; margin: 22px 0 28px; }
+    h1 em { color: var(--green); font-weight: 400; }
+    .hero-copy { max-width: 590px; font-size: clamp(1.12rem, 2vw, 1.35rem); color: #414438; }
+    .hero-copy strong { color: var(--ink); font-weight: 600; }
+    .hero-meta { margin-top: 32px; display: flex; gap: 16px; align-items: center; font-family: var(--mono); text-transform: uppercase; font-size: .74rem; letter-spacing: .08em; color: var(--muted); }
+    .hero-meta::before { content: ""; width: 42px; height: 1px; background: var(--green); }
+    .art {
+      position: relative; background: var(--wash); border: 1px solid var(--line);
+      padding: 22px; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center;
     }
-
-    section {
-      margin-bottom: 2.75rem;
+    .art::before { content: "FIG. 01 / THE TURNING POINT"; position: absolute; left: 20px; top: 15px; font: .66rem var(--mono); letter-spacing: .08em; color: var(--muted); }
+    .art svg { width: 100%; height: auto; max-height: 440px; }
+    .art-caption { position: absolute; bottom: 15px; right: 20px; font: .68rem var(--mono); color: var(--muted); }
+    .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+    .story { display: grid; grid-template-columns: 190px 1fr; gap: clamp(28px, 7vw, 100px); padding: 74px 0; }
+    .story-label { font: .76rem var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--green); padding-top: 8px; }
+    .story-content { max-width: 680px; }
+    .story h2 { font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.08; font-weight: 500; letter-spacing: -.045em; margin: 0 0 24px; }
+    .story p { font-size: 1.12rem; color: #414438; margin: 0 0 18px; }
+    .story p:last-child { margin-bottom: 0; }
+    .pullquote {
+      margin: 28px 0; padding: 8px 0 8px 24px; border-left: 2px solid var(--green);
+      font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.3; color: var(--ink);
     }
-
-    h2 {
-      font-size: 1.45rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
-      letter-spacing: -0.01em;
+    .timeline {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      border: 1px solid var(--line); background: var(--line); margin-top: 34px;
     }
-
-    p {
-      margin-bottom: 1.15rem;
+    .time-card { background: var(--paper); padding: 22px; }
+    .time-card .date { font: .72rem var(--mono); color: var(--green); letter-spacing: .08em; text-transform: uppercase; }
+    .time-card h3 { font-size: 1.22rem; font-weight: 500; margin: 10px 0 8px; }
+    .time-card p { font-size: .96rem; margin: 0; }
+    .mission { padding: 82px 0 88px; text-align: center; }
+    .mission h2 { font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: .98; letter-spacing: -.06em; font-weight: 500; margin: 18px auto 24px; max-width: 850px; }
+    .mission p { max-width: 600px; margin: 0 auto; font-size: 1.12rem; color: #414438; }
+    .stamp {
+      display: inline-block; margin-top: 32px; border: 1px solid var(--green);
+      padding: 10px 15px; color: var(--green); font: .75rem var(--mono);
+      letter-spacing: .12em; text-transform: uppercase;
     }
-
-    p:last-child {
-      margin-bottom: 0;
+    footer { border-top: 1px solid var(--line); padding: 23px 0 28px; display: flex; justify-content: space-between; gap: 20px; font: .72rem var(--mono); color: var(--muted); letter-spacing: .04em; }
+    .disclaimer { font-size: .82rem; color: var(--muted); max-width: 760px; margin: 0 auto 40px; text-align: center; }
+    @media (max-width: 720px) {
+      .shell { width: min(100% - 34px, 560px); }
+      .topbar { padding: 19px 0; font-size: .66rem; }
+      .topnote { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 62px 0 55px; gap: 34px; min-height: auto; }
+      h1 { font-size: clamp(3.6rem, 17vw, 5.8rem); }
+      .art { aspect-ratio: 5 / 4; max-width: 440px; width: 100%; margin: 0 auto; }
+      .art svg { max-height: 310px; }
+      .story { grid-template-columns: 1fr; gap: 18px; padding: 50px 0; }
+      .timeline { grid-template-columns: 1fr; }
+      .time-card { padding: 20px; }
+      .mission { padding: 58px 0 65px; }
+      footer { flex-direction: column; }
     }
-
-    .closing {
-      margin-top: 3.5rem;
-      padding-top: 2.25rem;
-      border-top: 1px solid #d4cfc3;
-      text-align: center;
-      font-style: italic;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      font-size: 0.95rem;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 2.5rem 1.25rem 4rem;
-      }
-
-      h1 {
-        font-size: 2.1rem;
-      }
-
-      body {
-        font-size: 1.05rem;
-      }
-    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>My Deadlift Story</h1>
-      <p class="subtitle">How building strength healed my back</p>
-    </header>
-
-    <section>
-      <h2>A lifetime of back pain</h2>
-      <p>Growing up, I dealt with back pain and difficulty sleeping due to C-shaped scoliosis. Finding a comfortable sleeping position was often a challenge.</p>
+  <header class="shell topbar">
+    <a class="brand" href="#" aria-label="Do More Deadlifts home">DO MORE DEADLIFTS</a>
+    <span class="topnote">A story about strength &amp; fewer excuses</span>
+    <span>Est. 2023</span>
+  </header>
+  <main>
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow">The story behind the name</div>
+        <h1>I stopped<br>waiting for my<br>back to <em>feel better.</em></h1>
+        <div class="hero-copy">
+          Years of back pain, one questionable river dive, and a conversation that finally made me stop treating my spine like it was made of glass. <strong>Deadlifts fixed more than I expected.</strong>
+        </div>
+        <div class="hero-meta">My story · Summer 2023 onward</div>
+      </div>
+      <div class="art" role="img" aria-label="Minimal retro line illustration of a person performing a deadlift">
+        <svg viewBox="0 0 380 440" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#b9bdab" stroke-width="1">
+            <path d="M24 78H356M24 118H356M24 158H356M24 198H356M24 238H356M24 278H356M24 318H356M24 358H356"/>
+            <path d="M54 48V388M94 48V388M134 48V388M174 48V388M214 48V388M254 48V388M294 48V388M334 48V388"/>
+          </g>
+          <g fill="none" stroke="#52664a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M155 113 L192 145 L233 191 L255 254"/>
+            <path d="M192 145 L155 205 L138 271"/>
+            <path d="M155 113 L199 126 L233 191"/>
+            <path d="M233 191 L255 254 L285 316"/>
+            <path d="M138 271 L119 316 L95 331"/>
+            <path d="M285 316 L310 331"/>
+          </g>
+          <circle cx="143" cy="91" r="24" fill="#ffffff" stroke="#52664a" stroke-width="10"/>
+          <g fill="none" stroke="#242820" stroke-width="5" stroke-linecap="square">
+            <path d="M62 333H324"/>
+            <path d="M76 316V350M88 307V359M298 307V359M310 316V350"/>
+            <path d="M76 333H310"/>
+          </g>
+          <g fill="#ffffff" stroke="#242820" stroke-width="5">
+            <rect x="63" y="306" width="20" height="54"/>
+            <rect x="303" y="306" width="20" height="54"/>
+          </g>
+          <g fill="#52664a">
+            <circle cx="192" cy="145" r="7"/><circle cx="155" cy="205" r="7"/>
+            <circle cx="233" cy="191" r="7"/><circle cx="255" cy="254" r="7"/>
+          </g>
+          <g font-family="Courier New, monospace" font-size="10" fill="#52664a" letter-spacing="1">
+            <text x="24" y="405">FORM / FOCUS / CONSISTENCY</text>
+            <text x="24" y="421">BUILD STRENGTH, ONE REP AT A TIME</text>
+          </g>
+        </svg>
+        <div class="art-caption">ILLUSTRATION 001</div>
+      </div>
     </section>
-
-    <section>
-      <h2>Summer 2023: A back injury</h2>
-      <p>In the summer of 2023, I dove into a river and hyperextended my back, bending backward so far that my heels went behind my head.</p>
-      <p>The injury left me with persistent back pain for six months or longer. The pain was especially uncomfortable at night, making it difficult to find a comfortable sleeping position. I also held back from exercising at my full potential.</p>
-      <p>I stopped doing lower-back and core exercises because they hurt, believing my back needed rest. Unfortunately, I wasn't seeing any improvement.</p>
+    <hr class="shell rule">
+    <section class="shell story">
+      <div class="story-label">01 / Before</div>
+      <div class="story-content">
+        <h2>Back pain was my long-term roommate.</h2>
+        <p>I grew up with C-shaped scoliosis. Sleeping was often a negotiation with my own spine. Comfortable positions were rare and temporary.</p>
+        <p>In the summer of 2023, I dove into a river and hyperextended my back so hard that my heels ended up behind my head. It was the kind of party trick no one asked for. The pain stuck around for six months or more. Nights were the worst, and training felt like walking on eggshells.</p>
+        <p>I did what a lot of people do: I stopped training the areas that hurt. Rest seemed logical. It just wasn’t working.</p>
+      </div>
     </section>
-
-    <section>
-      <h2>December 2023: Discovering deadlifts</h2>
-      <p>In December 2023, I spoke with a former MMA fighter who shared his own experience with back pain. He told me that a back surgeon had recommended trying deadlifts with proper form for several months before considering surgery.</p>
-      <p>According to his experience, deadlifting had made his back pain disappear.</p>
-      <p>That conversation inspired me to give deadlifts a try myself, starting carefully and focusing on proper technique.</p>
+    <hr class="shell rule">
+    <section class="shell story">
+      <div class="story-label">02 / The turning point</div>
+      <div class="story-content">
+        <h2>A former MMA fighter said the quiet part out loud.</h2>
+        <p>In December 2023, I talked to a guy who’d been through his own back issues. A surgeon had told him to try deadlifts with good form for a few months before considering surgery. He did. The pain left.</p>
+        <p>That was enough for me. I started deadlifting carefully, obsessing over form, and refusing to load the bar until it felt right.</p>
+        <div class="pullquote">“Within about a month, the pain was gone.”</div>
+        <p>Not “mostly better.” Gone. And the side effects were pretty good too: more muscle, more strength, and a lot less time spent treating my back like a fragile museum piece.</p>
+      </div>
     </section>
-
-    <section>
-      <h2>One month later: A turning point</h2>
-      <p>Within about a month of starting deadlifts, my back pain had completely disappeared.</p>
-      <p>But the benefits didn't stop there. I began developing a stronger physique, building muscle, and improving my overall strength.</p>
-      <p>For me, deadlifts became a turning point in how I thought about my back. Rather than avoiding movement out of fear, I began focusing on building strength.</p>
+    <hr class="shell rule">
+    <section class="shell story">
+      <div class="story-label">03 / What I learned</div>
+      <div class="story-content">
+        <h2>Strength works better when the whole system is online.</h2>
+        <p>Deadlifts were the main character in this story, but balanced training mattered. Posterior chain, chest, triceps, quads, abs — the full crew. My core got stronger, my training got more consistent, and the old back pain stayed gone.</p>
+        <p>Turns out avoiding every movement that felt sketchy wasn’t the long-term plan. Building capacity was.</p>
+        <div class="timeline">
+          <article class="time-card">
+            <div class="date">Summer 2023</div>
+            <h3>The dive</h3>
+            <p>One enthusiastic river entry, months of stubborn back pain.</p>
+          </article>
+          <article class="time-card">
+            <div class="date">December 2023</div>
+            <h3>New plan</h3>
+            <p>A conversation that made me stop resting and start training properly.</p>
+          </article>
+          <article class="time-card">
+            <div class="date">~1 month later</div>
+            <h3>Result</h3>
+            <p>Pain gone. Strength up. Spine no longer running the show.</p>
+          </article>
+        </div>
+      </div>
     </section>
-
-    <section>
-      <h2>Building a balanced body</h2>
-      <p>Deadlifts were the biggest factor in my experience, but I also came to appreciate the importance of balanced strength training.</p>
-      <p>Training your posterior chain, including your back and hamstrings, is only part of the picture. Your body benefits from a well-rounded approach that also includes your chest, triceps, quadriceps, and abdominal muscles.</p>
-      <p>I've continued strengthening my core and building a more balanced physique, and my back feels better than it has in years.</p>
+    <hr class="shell rule">
+    <section class="shell mission">
+      <div class="eyebrow">04 / Why Do More Deadlifts</div>
+      <h2>Build strength.<br><em>Protect your back.</em></h2>
+      <p>I started Do More Deadlifts to show the process, share technique notes, and prove that getting stronger doesn’t have to be dramatic. Just consistent, a little stubborn, and occasionally funny when the form videos look rough.</p>
+      <div class="stamp">Do More · Move Well · Get Strong</div>
     </section>
-
-    <section>
-      <h2>Why I created Burtonian Deadlifts</h2>
-      <p>I created Burtonian Deadlifts to share my progress, demonstrate proper deadlift technique, and help others develop strength with confidence.</p>
-      <p>I want to make learning the deadlift approachable and help people track their progress as they build stronger bodies.</p>
-      <p>My experience showed me how much strength training could change my life. Now, I want to share what I've learned and encourage others to explore what building strength can do for them.</p>
-    </section>
-
-    <div class="closing">
-      Burtonian Deadlifts: Build strength, protect your back.
-    </div>
-
-    <footer>
-      &mdash; mburton89
-    </footer>
-  </div>
+    <p class="shell disclaimer">This page shares my personal experience, not medical advice. Back pain has many possible causes, and deadlifts are not appropriate for everyone. If you're dealing with pain or an injury, talk to a qualified healthcare professional before changing your training.</p>
+  </main>
+  <footer class="shell">
+    <span>© <span id="year">2026</span> DoMoreDeadlifts.com</span>
+    <span>Built on patience, practice, and a refusal to keep resting.</span>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
